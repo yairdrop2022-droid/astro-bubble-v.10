@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+    
+    <!-- Page principale -->
+    <url>
+        <loc>https://votre-domaine.com/</loc>
+        <lastmod>2026-02-08</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        
+        <!-- Images importantes pour le SEO -->
+        <image:image>
+            <image:loc>https://votre-domaine.com/images/quarter-zip-jee.jpg</image:loc>
+            <image:title>Quarter-Zip JEE - Design Y2K Vintage</image:title>
+            <image:caption>Pull quarter-zip JEE noir avec broderie rouge - Gen?ve</image:caption>
+        </image:image>
+        
+        <image:image>
+            <image:loc>https://votre-domaine.com/images/logo-jee.png</image:loc>
+            <image:title>Logo JEE Quarter-Zip</image:title>
+        </image:image>
+    </url>
+    
+</urlset>

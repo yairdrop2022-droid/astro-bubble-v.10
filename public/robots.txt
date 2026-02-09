@@ -1,0 +1,15 @@
+# robots.txt pour Quarter-Zip Gen?ve
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://votre-domaine.com/sitemap.xml
+
+# Crawl delay (optionnel)
+Crawl-delay: 10
+
+# Bloquer les chemins non nécessaires
+Disallow: /api/
+Disallow: /admin/
+Disallow: /_astro/

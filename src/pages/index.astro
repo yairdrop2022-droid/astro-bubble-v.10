@@ -1,17 +1,1631 @@
----
+
+Copier
 
 ---
+import '../styles/global.css';
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+const title = "Quarter-Zip Genève - Comparatif & Guide d'Achat 2026 | 10 Boutiques + Prix";
+const description = "Trouvez le meilleur quarter-zip et col zippé à Genève. Comparatif détaillé avec 10 boutiques : exclusive shop (4.7⭐), Konig (4.9⭐), picibi (5.0⭐). Carte interactive, avis clients, prix.";
+const canonicalURL = "https://votre-domaine.com";
+const imageOG = "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=1200&h=630&fit=crop";
+
+const stores = [
+  {
+    name: "exclusive shop",
+    type: "Magasin de vêtements",
+    rating: 4.7,
+    reviews: 61,
+    address: "Rue de Lausanne 42, 1201 Genève",
+    phone: "+41 22 732 22 79",
+    website: "https://exclusiveshoponline.com/",
+    googleMaps: "https://www.google.com/maps/place/exclusive+shop/@46.2136998,6.1459402999999995,14z",
+    hours: "Mar-Ven 10:30-18:30 | Sam 10:30-18:00 | Dim-Lun Fermé",
+    description: "Boutique tendance proposant des vêtements modernes et streetwear. Large sélection de quarter-zips dans un style urbain contemporain.",
+    lat: 46.2136998,
+    lng: 6.1459403,
+    image: "https://lh3.googleusercontent.com/p/AF1QipNLRtyqWvNLo29-QsHbJ2q8QIVZ7il7puVt8T9o=w800-h500-k-no",
+    fallbackImage: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=400&fit=crop&q=80",
+    priceRange: "CHF 35-80"
+  },
+  {
+    name: "Konig Genève",
+    type: "Magasin de vêtements pour hommes",
+    rating: 4.9,
+    reviews: 48,
+    address: "Pl. des Alpes 2, 1201 Genève",
+    phone: "+41 22 732 77 87",
+    website: "https://www.konig-geneve.com/",
+    googleMaps: "https://www.google.com/maps/place/Konig+Genève/@46.209163499999995,6.1480669,14z",
+    hours: "Lun-Ven 10:00-19:00 | Sam 10:00-18:00 | Dim Fermé",
+    description: "Référence genevoise pour l'homme élégant. Chaussures, vêtements et accessoires haut de gamme incluant des quarter-zips en laine mérinos.",
+    lat: 46.2091635,
+    lng: 6.1480669,
+    image: "https://lh3.googleusercontent.com/p/AF1QipMevX_XzvH_jMQraEJnEKgXz0nG_XpViqtRGeWG=w800-h500-k-no",
+    fallbackImage: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=800&h=400&fit=crop&q=80",
+    priceRange: "CHF 90-180"
+  },
+  {
+    name: "Boutique Addison",
+    type: "Magasin de vêtements pour hommes",
+    rating: 4.8,
+    reviews: 22,
+    address: "Rue de la Madeleine 13, 1204 Genève",
+    phone: "+41 22 312 33 50",
+    website: "http://addisongeneva.com/",
+    googleMaps: "https://www.google.com/maps/place/Boutique+Addison/@46.2023976,6.1490544,14z",
+    hours: "Lun-Ven 10:00-18:30 | Sam 10:00-18:00 | Dim Fermé",
+    description: "Boutique raffinée au cœur de Genève. Sélection pointue de marques italiennes et suisses avec des quarter-zips en cachemire et coton premium.",
+    lat: 46.2023976,
+    lng: 6.1490544,
+    image: "https://addisongeneva.com/cdn/shop/files/10mars-ghostjour1-1997_1d240b77-cd50-44d3-8395-405e3843fae1.jpg?v=1760099222&width=700",
+    fallbackImage: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&h=400&fit=crop&q=80",
+    priceRange: "CHF 120-250"
+  },
+  {
+    name: "KA/NOA Boutique",
+    type: "Magasin de vêtements",
+    rating: 4.8,
+    reviews: 16,
+    address: "Rue Verdaine 13, 1204 Genève",
+    phone: "+41 22 311 39 81",
+    website: "http://kanoaitalia.com/",
+    googleMaps: "https://www.google.com/maps/place/KA/NOA+Boutique/@46.2010681,6.1500796,14z",
+    hours: "Lun-Ven 10:00-18:30 | Sam 10:00-18:00 | Dim Fermé",
+    description: "Boutique italienne chic avec collections exclusives. Quarter-zips en matières nobles et finitions soignées.",
+    lat: 46.2010681,
+    lng: 6.1500796,
+    image: "https://kanoaitalia.com/cdn/shop/files/PEREZ_275-0100M_FRONT_720x.jpg",
+    fallbackImage: "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?w=800&h=400&fit=crop&q=80",
+    priceRange: "CHF 110-190"
+  },
+  {
+    name: "picibi",
+    type: "Magasin de vêtements",
+    rating: 5.0,
+    reviews: 7,
+    address: "Rue de la Madeleine 11, 1204 Genève",
+    phone: "+41 22 311 33 46",
+    website: "http://www.picibi.ch/",
+    googleMaps: "https://www.google.com/maps/place/picibi/@46.202368,6.148871,14z",
+    hours: "Lun-Ven 10:00-18:30 | Sam 10:00-18:00 | Dim Fermé",
+    description: "Concept store exclusif avec note parfaite 5⭐. Marques avant-gardistes et pièces uniques incluant des quarter-zips designer.",
+    lat: 46.202368,
+    lng: 6.148871,
+    image: "https://lh3.googleusercontent.com/gps-cs-s/AHVAwerOETwAx3YoNrn3hmYfaVj9xXYiIa-BIJEWl5E9xb_9uqKnbmB-XJ8Wk4zNHF7ECiSV5A2rF90zyVfBuY6WE6GjucI-4C-w84sm2CsehBVQUSEJ3bN8Biq6fIrcxnvvMUJJG4GQVJf7FLWN=w800-h500-k-no",
+    fallbackImage: "https://images.unsplash.com/photo-1555529902-5261145633bf?w=800&h=400&fit=crop&q=80",
+    priceRange: "CHF 150-300"
+  },
+  {
+    name: "Hackett London",
+    type: "Magasin de vêtements pour hommes",
+    rating: 4.2,
+    reviews: 16,
+    address: "Rue de la Tour-Maîtresse 5, 1204 Genève",
+    phone: "+41 22 310 23 11",
+    website: "http://www.hackett.com/",
+    googleMaps: "https://www.google.com/maps/place/Hackett+London/@46.2024932,6.1518064,14z",
+    hours: "Lun-Jeu 9:30-18:30 | Ven 12:00-18:30 | Sam 9:30-18:00",
+    description: "Marque britannique iconique. Style preppy et classique avec une gamme complète de quarter-zips en laine et coton.",
+    lat: 46.2024932,
+    lng: 6.1518064,
+    image: "https://lh3.googleusercontent.com/gps-cs-s/AHVAweo_ojQlFH_zPrGAqoo9LJpbM5I7hSlRsiNYkzJLxBsu3jgoFePOTAJ4JOXjeSFbUlHl4SH1fFqQc6AnWylDIm3Th5RJIjVGtcmCg4SuSN_sJMrZTzinHh0yNb9DTwFABo5CSVXS=w800-h500-k-no",
+    fallbackImage: "https://images.unsplash.com/photo-1490114538077-0a7f8cb49891?w=800&h=400&fit=crop&q=80",
+    priceRange: "CHF 140-220"
+  },
+  {
+    name: "Monsieur Alain",
+    type: "Magasin de vêtements pour hommes",
+    rating: 4.9,
+    reviews: 25,
+    address: "Bd de Saint-Georges 63, 1205 Genève",
+    phone: "+41 22 534 94 34",
+    website: "http://monsieuralain.ch/",
+    googleMaps: "https://www.google.com/maps/place/Monsieur+Alain/@46.2014594,6.137446,14z",
+    hours: "Mar-Ven 11:00-19:00 | Sam 10:00-18:00 | Dim-Lun Fermé",
+    description: "Boutique masculine contemporaine avec sélection pointue. Quarter-zips de marques scandinaves et italiennes dans un cadre élégant.",
+    lat: 46.2014594,
+    lng: 6.137446,
+    image: "https://www.monsieuralain.ch/cdn/shop/products/Navy_Full_Half-Zip_Sweater-1.jpg?v=1574431802&width=2000",
+    fallbackImage: "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=800&h=400&fit=crop&q=80",
+    priceRange: "CHF 100-200"
+  },
+  {
+    name: "Falconeri",
+    type: "Magasin de vêtements",
+    rating: 4.3,
+    reviews: 22,
+    address: "Rue du Rhône 2, 1204 Genève",
+    phone: "+41 22 510 12 10",
+    website: "https://www.falconeri.com/",
+    googleMaps: "https://www.google.com/maps/place/Falconeri/@46.204198,6.1436839999999995,14z",
+    hours: "Lun-Ven 10:00-19:00 | Sam 10:00-18:00 | Dim Fermé",
+    description: "Spécialiste italien du cachemire et de la maille. Quarter-zips en cachemire de qualité exceptionnelle à prix accessible.",
+    lat: 46.204198,
+    lng: 6.143684,
+    image: "https://lh3.googleusercontent.com/p/AF1QipOk1QJXRik9T7uoi8D5lpU9ATJdJcjBOGZUQXLg=w800-h500-k-no",
+    fallbackImage: "https://images.unsplash.com/photo-1445205170230-053b83016050?w=800&h=400&fit=crop&q=80",
+    priceRange: "CHF 80-160"
+  },
+  {
+    name: "Bongénie Genève",
+    type: "Grand magasin",
+    rating: 4.2,
+    reviews: 538,
+    address: "Rue du Marché 34, 1204 Genève",
+    phone: "+41 58 330 30 10",
+    website: "https://www.bongenie.ch/",
+    googleMaps: "https://www.google.com/maps/place/Bongénie+Genève/@46.2027206,6.1471602,14z",
+    hours: "Lun-Mer, Ven 9:30-19:00 | Jeu 9:30-20:00 | Sam 9:30-18:00",
+    description: "Institution genevoise depuis 1862. Large choix de marques premium et quarter-zips de toutes gammes dans un cadre historique.",
+    lat: 46.2027206,
+    lng: 6.1471602,
+    image: "https://lh3.googleusercontent.com/p/AF1QipNuPG570pYRAXwoF6-_xcRDumCC1hWO2XYWmhB4=w800-h500-k-no",
+    fallbackImage: "https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?w=800&h=400&fit=crop&q=80",
+    priceRange: "CHF 60-250"
+  },
+  {
+    name: "KUJTEN",
+    type: "Boutique d'articles de mode",
+    rating: 4.1,
+    reviews: 8,
+    address: "Rue du Purgatoire 3, 1204 Genève",
+    phone: "+41 22 310 35 75",
+    website: "https://www.kujten.com/fr-ch/pages/boutiques/boutique-geneve",
+    googleMaps: "https://www.google.com/maps/place/KUJTEN+-+GENEVE/@46.2022297,6.1495479,14z",
+    hours: "Lun-Ven 10:00-18:30 | Sam 10:00-18:00 | Dim Fermé",
+    description: "Boutique de mode contemporaine avec paiement par carte. Visite rapide possible pour découvrir leurs quarter-zips.",
+    lat: 46.2022297,
+    lng: 6.1495479,
+    image: "https://www.kujten.com/cdn/shop/files/H_201002-2261_20-_20MARRON_pk.jpg?v=1750427596&width=1946",
+    fallbackImage: "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=800&h=400&fit=crop&q=80",
+    priceRange: "CHF 50-150"
+  }
+];
+
+const quarterZipComparison = [
+  {
+    name: "Quarter-Zip JEE",
+    brand: "JEE",
+    material: "Coton premium",
+    price: "CHF 21.05",
+    priceNum: 21.05,
+    quality: 4,
+    comfort: 5,
+    durability: 4,
+    style: 5,
+    breathability: 4,
+    value: 5,
+    pros: ["Design Y2K Vintage authentique", "Excellent rapport qualité-prix", "Style streetwear unique", "Broderies détaillées"],
+    cons: ["Disponible uniquement en ligne"],
+    link: "https://epsteinquarterzip.netlify.app/",
+    gradient: "from-slate-50 via-white to-slate-100",
+    image: "https://ae01.alicdn.com/kf/Sb4a0cea31726462b878b2b8e43daefe6Y.jpg",
+    brandClass: "bg-slate-900 text-white"
+  },
+  {
+    name: "Quarter-Zip Konig Genève",
+    brand: "Konig",
+    material: "Laine mérinos",
+    price: "CHF 90-180",
+    priceNum: 135,
+    quality: 5,
+    comfort: 5,
+    durability: 5,
+    style: 5,
+    breathability: 4,
+    value: 4,
+    pros: ["Référence genevoise", "Qualité haut de gamme", "Service personnalisé", "Laine mérinos premium"],
+    cons: ["Prix élevé"],
+    link: "https://www.konig-geneve.com/",
+    gradient: "from-gray-50 via-white to-gray-100",
+    image: "https://static.wixstatic.com/media/996a96_23c533114db24a84b21557ad33402995~mv2.jpg/v1/fill/w_664,h_664,q_90/996a96_23c533114db24a84b21557ad33402995~mv2.jpg",
+    brandClass: "bg-white/90 backdrop-blur-sm text-gray-900"
+  },
+  {
+    name: "Quarter-Zip Falconeri",
+    brand: "Falconeri",
+    material: "Cachemire italien",
+    price: "CHF 80-160",
+    priceNum: 120,
+    quality: 5,
+    comfort: 5,
+    durability: 5,
+    style: 5,
+    breathability: 4,
+    value: 4,
+    pros: ["Cachemire de qualité", "Made in Italy", "Prix raisonnable pour du cachemire"],
+    cons: ["Entretien délicat"],
+    link: "https://www.falconeri.com/",
+    gradient: "from-blue-50 via-white to-blue-100",
+    image: "https://www.falconeri.com/dw/image/v2/BKQL_PRD/on/demandware.static/-/Sites-FAL_EC_COM/default/dw5751aea9/images/UML228Q9215-F.jpg?sfrm=png&bgcolor=f4f4f4&sw=1920&q=80",
+    brandClass: "bg-blue-600 text-white"
+  }
+];
+
+const budgetCategories = [
+  {
+    title: "Budget Économique",
+    range: "CHF 21-80",
+    icon: `<svg class="w-16 h-16 mx-auto mb-4" viewBox="0 0 100 100" fill="none">
+      <defs>
+        <linearGradient id="coin1" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#fbbf24;stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#f59e0b;stop-opacity:1" />
+        </linearGradient>
+      </defs>
+      <circle cx="50" cy="50" r="40" fill="url(#coin1)" stroke="#d97706" stroke-width="2"/>
+      <circle cx="50" cy="50" r="30" fill="none" stroke="#d97706" stroke-width="1.5"/>
+    </svg>`,
+    stores: ["Quarter-Zip JEE (CHF 21.05)", "exclusive shop (CHF 35-80)", "Falconeri (CHF 80-160)"],
+    description: "Parfait pour débuter ou pour un usage occasionnel"
+  },
+  {
+    title: "Milieu de Gamme",
+    range: "CHF 80-150",
+    icon: `<svg class="w-16 h-16 mx-auto mb-4" viewBox="0 0 100 100" fill="none">
+      <defs>
+        <linearGradient id="star1" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#60a5fa;stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+        </linearGradient>
+      </defs>
+      <path d="M50 15 L58 38 L82 38 L63 52 L71 75 L50 60 L29 75 L37 52 L18 38 L42 38 Z" fill="url(#star1)" stroke="#1d4ed8" stroke-width="2"/>
+      <circle cx="50" cy="50" r="12" fill="#1e3a8a" opacity="0.3"/>
+    </svg>`,
+    stores: ["Falconeri (CHF 80-160)", "Konig Genève (CHF 90-180)", "Monsieur Alain (CHF 100-200)"],
+    description: "Excellent compromis qualité-prix avec matières nobles"
+  },
+  {
+    title: "Premium & Luxe",
+    range: "CHF 150-300+",
+    icon: `<svg class="w-16 h-16 mx-auto mb-4" viewBox="0 0 100 100" fill="none">
+      <defs>
+        <linearGradient id="crown1" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#fbbf24;stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#f59e0b;stop-opacity:1" />
+        </linearGradient>
+      </defs>
+      <path d="M20 70 L30 45 L40 55 L50 30 L60 55 L70 45 L80 70 Z" fill="url(#crown1)" stroke="#d97706" stroke-width="2"/>
+      <circle cx="30" cy="45" r="5" fill="#ef4444"/>
+      <circle cx="50" cy="30" r="5" fill="#ef4444"/>
+      <circle cx="70" cy="45" r="5" fill="#ef4444"/>
+      <rect x="15" y="70" width="70" height="8" fill="#d97706" rx="2"/>
+    </svg>`,
+    stores: ["picibi (CHF 150-300)", "Boutique Addison (CHF 120-250)", "Hackett London (CHF 140-220)"],
+    description: "Qualité exceptionnelle, cachemire et marques de prestige"
+  }
+];
+
+const schemaProduct = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Quarter-Zip JEE",
+  "image": imageOG,
+  "description": "Pull quarter-zip JEE avec fermeture éclair quart, design épuré et polyvalent pour homme",
+  "brand": { "@type": "Brand", "name": "JEE" },
+  "offers": {
+    "@type": "Offer",
+    "url": "https://epsteinquarterzip.netlify.app/",
+    "priceCurrency": "CHF",
+    "price": "21.05",
+    "availability": "https://schema.org/InStock",
+    "seller": { "@type": "Organization", "name": "JEE" }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.5",
+    "reviewCount": "1"
+  }
+};
+
+const schemaLocal = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Quarter-Zip Genève - Guide Complet avec 10 Boutiques",
+  "description": description,
+  "url": canonicalURL,
+  "inLanguage": "fr-CH",
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "46.2044",
+    "longitude": "6.1432"
+  }
+};
+---
+
+<!DOCTYPE html>
+<html lang="fr-CH">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>{title}</title>
+    <meta name="description" content={description}>
+    <meta name="keywords" content="quarter zip genève, quarter zip Genève, quarter-zip JEE, pull quarter zip, pull homme Genève, exclusive shop, konig genève, picibi, falconeri, col zippé genève, col fermeture éclair">
+    <link rel="canonical" href={canonicalURL}>
+    <meta name="robots" content="index, follow">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content={canonicalURL}>
+    <meta property="og:title" content={title}>
+    <meta property="og:description" content={description}>
+    <meta property="og:image" content={imageOG}>
+    
+    <meta name="geo.region" content="CH-GE">
+    <meta name="geo.placename" content="Genève">
+    
+    <meta name="google-site-verification" content="Wfe5WKGvqqqrbdMMnrxVhZKJ1Jnq4M83FyiIAyxHGnw" />
+    
+    <link rel="preload" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" as="style">
+    
+    <link rel="dns-prefetch" href="https://unpkg.com">
+    <link rel="dns-prefetch" href="https://images.unsplash.com">
+    <link rel="dns-prefetch" href="https://lh3.googleusercontent.com">
+    
+    <script type="application/ld+json" set:html={JSON.stringify(schemaProduct)} />
+    <script type="application/ld+json" set:html={JSON.stringify(schemaLocal)} />
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" 
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" 
+          crossorigin=""/>
+    
+    <style>
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(37, 99, 235, 0.3); }
+            50% { box-shadow: 0 0 30px rgba(37, 99, 235, 0.5); }
+        }
+
+        @keyframes gridPulse {
+            0%, 100% { opacity: 0.03; }
+            50% { opacity: 0.06; }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            background: #ffffff;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #ffffff;
+            color: #0a0a0a;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 2;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Grid Background */
+        .grid-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.5;
+        }
+
+        .grid-background::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            animation: gridPulse 4s ease-in-out infinite;
+        }
+
+        /* Spotlight Cursor */
+        .spotlight {
+            position: fixed;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 100;
+            mix-blend-mode: difference;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.4) 40%, transparent 70%);
+            transition: transform 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            will-change: transform;
+        }
+
+        /* Echo trails */
+        .echo {
+            position: fixed;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 99;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 60%);
+            opacity: 0;
+            animation: echoFade 0.6s ease-out forwards;
+        }
+
+        @keyframes echoFade {
+            0% {
+                opacity: 0.6;
+                transform: scale(0.8);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(1.2);
+            }
+        }
+
+        /* Reveal layer for images and text */
+        .reveal-container {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .reveal-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            clip-path: circle(0px at 0px 0px);
+            transition: clip-path 0.1s ease-out;
+            z-index: 2;
+        }
+
+        /* Parallax elements */
+        .parallax-item {
+            transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            will-change: transform;
+        }
+
+        /* Invert colors on spotlight hover */
+        .spotlight-invert {
+            transition: filter 0.3s ease, color 0.3s ease;
+            pointer-events: auto;
+        }
+
+        .modern-card {
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 10px 40px rgba(0, 0, 0, 0.04);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .modern-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), 0 20px 60px rgba(0, 0, 0, 0.08);
+            border-color: rgba(0, 0, 0, 0.12);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #0a0a0a 0%, #404040 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .accent-gradient {
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            color: #ffffff;
+            padding: 1rem 2.5rem;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+            pointer-events: auto;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary {
+            background: #ffffff;
+            border: 2px solid #0a0a0a;
+            color: #0a0a0a;
+            padding: 0.875rem 2rem;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            pointer-events: auto;
+        }
+
+        .btn-secondary:hover {
+            background: #0a0a0a;
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        .product-image {
+            object-fit: cover;
+            border-radius: 1rem;
+        }
+
+        .scroll-animate {
+            opacity: 0;
+        }
+
+        .scroll-animate.active {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        #map {
+            height: 600px;
+            border-radius: 1rem;
+            filter: saturate(0.9) contrast(1.05);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .brand-logo-text {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5rem;
+            border-radius: 1rem;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .tag {
+            background: rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            color: #1a1a1a;
+            padding: 0.625rem 1.5rem;
+            border-radius: 2rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin: 0.75rem;
+        }
+
+        .tag:hover {
+            background: rgba(0, 0, 0, 0.08);
+            border-color: rgba(0, 0, 0, 0.15);
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(245, 245, 250, 0.9) 100%);
+            border-radius: 2rem;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            padding: 3rem;
+            line-height: 1.8;
+        }
+
+        .stats-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 2rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+
+        .store-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 1rem 1rem 0 0;
+            background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+        }
+
+        .rating-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: #0a0a0a;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            white-space: nowrap;
+        }
+
+        #backToTop {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 3.5rem;
+            height: 3.5rem;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1000;
+            pointer-events: auto;
+        }
+
+        #backToTop.visible {
+            opacity: 1;
+            visibility: visible;
+            animation: slideInRight 0.5s ease;
+        }
+
+        #backToTop:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+        }
+
+        /* Pages branding */
+        .pages-logo {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .pages-title {
+            font-size: 4rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #0a0a0a 0%, #404040 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.05em;
+            margin-bottom: 1rem;
+        }
+
+        .pages-subtitle {
+            font-size: 1rem;
+            color: #6b7280;
+            font-weight: 400;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Reduced spacing */
+        .section-gap {
+            margin-bottom: 4rem;
+        }
+
+        .section-gap-large {
+            margin-bottom: 6rem;
+        }
+
+        .title-spacing {
+            margin-bottom: 3rem;
+        }
+
+        .subtitle-spacing {
+            margin-bottom: 2rem;
+        }
+
+        /* Aération du texte dans les cards */
+        .text-card-aerated {
+            padding: 2.5rem;
+            line-height: 1.9;
+        }
+
+        .text-card-aerated p {
+            margin-bottom: 1.5rem;
+        }
+
+        .text-card-aerated ul {
+            margin-top: 1.5rem;
+        }
+
+        .text-card-aerated li {
+            margin-bottom: 1rem;
+        }
+
+        /* Aération section CTA */
+        .cta-section {
+            padding: 3.5rem;
+            line-height: 1.8;
+        }
+
+        .cta-section h2 {
+            margin-bottom: 2rem;
+        }
+
+        .cta-section p {
+            margin-bottom: 2.5rem;
+        }
+
+        @media (max-width: 1024px) {
+            #map {
+                height: 400px;
+            }
+
+            .brand-logo-text {
+                width: 60px;
+                height: 60px;
+            }
+
+            #backToTop {
+                width: 3rem;
+                height: 3rem;
+                bottom: 1.5rem;
+                right: 1.5rem;
+                font-size: 1.25rem;
+            }
+
+            .pages-title {
+                font-size: 3rem;
+            }
+
+            .section-gap {
+                margin-bottom: 3rem;
+            }
+
+            .section-gap-large {
+                margin-bottom: 5rem;
+            }
+
+            .text-card-aerated {
+                padding: 2rem;
+            }
+
+            .cta-section {
+                padding: 2.5rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            body {
+                line-height: 1.8;
+            }
+
+            .spotlight {
+                width: 100px;
+                height: 100px;
+            }
+
+            .echo {
+                width: 100px;
+                height: 100px;
+            }
+
+            #backToTop {
+                width: 2.75rem;
+                height: 2.75rem;
+                bottom: 1rem;
+                right: 1rem;
+                font-size: 1.1rem;
+            }
+
+            .stats-badge {
+                font-size: 0.85rem;
+                padding: 0.6rem 1.2rem;
+            }
+
+            .tag {
+                margin: 0.5rem;
+                padding: 0.5rem 1.25rem;
+            }
+
+            .pages-title {
+                font-size: 2.5rem;
+            }
+
+            .pages-subtitle {
+                font-size: 0.9rem;
+            }
+
+            .section-gap {
+                margin-bottom: 2.5rem;
+            }
+
+            .section-gap-large {
+                margin-bottom: 4rem;
+            }
+
+            .rating-badge {
+                padding: 0.6rem 1.25rem;
+                gap: 0.5rem;
+            }
+
+            .text-card-aerated {
+                padding: 1.5rem;
+            }
+
+            .cta-section {
+                padding: 2rem;
+            }
+
+            .hero-section {
+                padding: 2rem;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Ensure all interactive elements have pointer cursor */
+        a, button, .tag, .modern-card {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <div class="grid-background"></div>
+    <div class="spotlight" id="spotlight"></div>
+    
+    <button id="backToTop" aria-label="Retour en haut de la page" title="Retour en haut">
+        ↑
+    </button>
+
+    <nav class="sticky top-0 z-50 backdrop-blur-md bg-white/80 border-b border-black/5 w-full flex justify-center">
+        <div class="w-full max-w-6xl px-6 sm:px-8 lg:px-12 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <img src="https://ae01.alicdn.com/kf/Sb4a0cea31726462b878b2b8e43daefe6Y.jpg" alt="Logo JEE" class="w-10 h-10 object-cover rounded-lg" width="40" height="40" />
+                    <span class="font-bold text-lg">Quarter-Zip Genève</span>
+                </div>
+                <a href="https://epsteinquarterzip.netlify.app/" target="_blank" rel="noopener noreferrer" class="btn-secondary text-sm py-2 px-4">
+                    Voir JEE
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="w-full max-w-6xl px-6 sm:px-8 lg:px-12 py-16 relative z-10">
+        <header class="text-center section-gap-large scroll-animate">
+            <div class="pages-logo">
+                <h1 class="pages-title parallax-item spotlight-invert">Pages</h1>
+                <p class="pages-subtitle parallax-item spotlight-invert">
+                    Un projet qui répertorie les meilleures pages du web par thématique
+                </p>
+            </div>
+            
+            <h2 class="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold mb-12 leading-tight gradient-text parallax-item spotlight-invert">
+                Quarter-Zip Genève
+            </h2>
+            <p class="text-xl sm:text-2xl lg:text-3xl text-gray-700 leading-relaxed max-w-4xl mx-auto mb-16 text-center parallax-item spotlight-invert">
+                Guide d'achat complet : 10 boutiques référencées à Genève
+            </p>
+            <div class="flex justify-center gap-2 flex-wrap mb-12">
+                <span class="tag parallax-item spotlight-invert">10 Boutiques</span>
+                <span class="tag parallax-item spotlight-invert">Comparatif 2026</span>
+                <span class="tag parallax-item spotlight-invert">Carte Interactive</span>
+            </div>
+            <div class="stats-badge parallax-item spotlight-invert">
+                Note moyenne : 4.5/5 sur 690+ avis clients
+            </div>
+        </header>
+
+        <!-- Section Le Quarter-Zip JEE -->
+        <section class="section-gap scroll-animate">
+            <h2 class="text-4xl lg:text-5xl font-bold title-spacing text-center gradient-text parallax-item spotlight-invert">
+                Le Quarter-Zip JEE
+            </h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
+                <div class="modern-card rounded-3xl p-8 hover:scale-[1.02] transition-transform reveal-container parallax-item">
+                    <img 
+                        src="https://ae01.alicdn.com/kf/Sb4a0cea31726462b878b2b8e43daefe6Y.jpg" 
+                        alt="Quarter-zip JEE noir avec broderie rouge et drapeau américain - pull Y2K vintage streetwear Genève"
+                        class="product-image w-full h-80 lg:h-96 object-cover mb-8 spotlight-invert"
+                        loading="lazy"
+                        width="800"
+                        height="600"
+                    />
+                    <div class="reveal-layer">
+                        <img 
+                            src="https://ae01.alicdn.com/kf/Se850811571284d609e0dba3f50895f88z.jpg" 
+                            alt="Quarter-zip JEE - Alternative view"
+                            class="product-image w-full h-80 lg:h-96 object-cover mb-8"
+                            loading="lazy"
+                            width="800"
+                            height="600"
+                        />
+                    </div>
+                    <p class="text-center text-sm text-gray-600 font-medium spotlight-invert">Quarter-Zip JEE - Design Y2K Vintage authentique</p>
+                </div>
+                <div class="modern-card rounded-3xl p-8 hover:scale-[1.02] transition-transform reveal-container parallax-item">
+                    <img 
+                        src="https://ae01.alicdn.com/kf/S7e70520328574f558b98164c381ee1051.jpg" 
+                        alt="Quarter-Zip JEE - Vue alternative"
+                        class="product-image w-full h-80 lg:h-96 object-cover bg-gradient-to-br from-slate-50 to-slate-100 mb-8 spotlight-invert"
+                        loading="lazy"
+                        width="800"
+                        height="600"
+                    />
+                    <div class="reveal-layer">
+                        <img 
+                            src="https://ae01.alicdn.com/kf/Sbc08ba4f872e436c98e35c8d128eb01fi.jpg" 
+                            alt="Quarter-Zip JEE - Second alternative view"
+                            class="product-image w-full h-80 lg:h-96 object-cover bg-gradient-to-br from-slate-50 to-slate-100 mb-8"
+                            loading="lazy"
+                            width="800"
+                            height="600"
+                        />
+                    </div>
+                    <p class="text-center text-sm text-gray-600 font-medium spotlight-invert">Quarter-Zip JEE - Vue détaillée</p>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="modern-card rounded-2xl p-4 hover:scale-[1.02] transition-transform parallax-item">
+                    <img 
+                        src="https://ae01.alicdn.com/kf/Se850811571284d609e0dba3f50895f88z.jpg" 
+                        alt="Quarter-Zip JEE - Détail broderie"
+                        class="w-full h-40 object-cover rounded-xl spotlight-invert"
+                        loading="lazy"
+                        width="400"
+                        height="300"
+                    />
+                </div>
+                <div class="modern-card rounded-2xl p-4 hover:scale-[1.02] transition-transform parallax-item">
+                    <img 
+                        src="https://ae01.alicdn.com/kf/S7e70520328574f558b98164c381ee1051.jpg" 
+                        alt="Quarter-Zip JEE - Col zippé"
+                        class="w-full h-40 object-cover rounded-xl spotlight-invert"
+                        loading="lazy"
+                        width="400"
+                        height="300"
+                    />
+                </div>
+                <div class="modern-card rounded-2xl p-4 hover:scale-[1.02] transition-transform parallax-item">
+                    <img 
+                        src="https://ae01.alicdn.com/kf/Sbc08ba4f872e436c98e35c8d128eb01fi.jpg" 
+                        alt="Quarter-Zip JEE - Vue portée"
+                        class="w-full h-40 object-cover rounded-xl spotlight-invert"
+                        loading="lazy"
+                        width="400"
+                        height="300"
+                    />
+                </div>
+                <div class="modern-card rounded-2xl p-4 hover:scale-[1.02] transition-transform parallax-item">
+                    <img 
+                        src="https://ae01.alicdn.com/kf/Sd7f00ed7672047a78e906fdf2ed2b76f9.jpg" 
+                        alt="Quarter-Zip JEE - Détails finitions"
+                        class="w-full h-40 object-cover rounded-xl spotlight-invert"
+                        loading="lazy"
+                        width="400"
+                        height="300"
+                    />
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Hero avec aération -->
+        <section class="section-gap scroll-animate">
+            <div class="hero-section parallax-item">
+                <h2 class="text-3xl lg:text-4xl font-bold mb-8 text-gray-900 spotlight-invert">Quarter-Zip Genève : Votre Guide Complet</h2>
+                
+                <p class="text-lg lg:text-xl text-gray-700 leading-relaxed mb-6 spotlight-invert">
+                    Vous cherchez un <strong class="text-gray-900">quarter-zip à Genève</strong> ? Ce guide recense <strong class="accent-gradient">10 boutiques spécialisées</strong> avec comparatif des prix, notes clients et adresses. Du <strong class="text-gray-900">Quarter-Zip JEE</strong> (CHF 21.05) aux boutiques premium comme picibi (5.0⭐) ou Konig Genève (4.9⭐).
+                </p>
+                
+                <p class="text-lg lg:text-xl text-gray-700 leading-relaxed mb-8 spotlight-invert">
+                    Découvrez notre sélection avec <strong class="text-gray-900">carte interactive, photos réelles des boutiques, horaires d'ouverture</strong> et gammes de prix de CHF 21 à CHF 300+.
+                </p>
+
+                <div class="text-center">
+                    <a 
+                        href="https://epsteinquarterzip.netlify.app/" 
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn-primary spotlight-invert"
+                    >
+                        Voir le Quarter-Zip JEE
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Boutiques par Budget -->
+        <section class="section-gap scroll-animate">
+            <h2 class="text-4xl lg:text-5xl font-bold title-spacing text-center gradient-text parallax-item spotlight-invert">
+                Boutiques par Budget
+            </h2>
+            <p class="text-center text-gray-600 text-lg subtitle-spacing max-w-3xl mx-auto parallax-item spotlight-invert">
+                Trouvez le quarter-zip parfait selon votre budget
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                {budgetCategories.map((category) => (
+                    <div class="modern-card rounded-3xl p-12 hover:scale-105 transition-transform parallax-item">
+                        <div class="text-center mb-12">
+                            <Fragment set:html={category.icon} />
+                            <h3 class="text-2xl font-bold text-gray-900 mb-5 spotlight-invert">{category.title}</h3>
+                            <p class="text-xl font-semibold accent-gradient spotlight-invert">{category.range}</p>
+                        </div>
+                        
+                        <p class="text-sm text-gray-600 mb-12 text-center italic leading-relaxed spotlight-invert">
+                            {category.description}
+                        </p>
+                        
+                        <div class="space-y-6">
+                            {category.stores.map((store) => (
+                                <div class="flex items-start gap-3 text-sm text-gray-700 leading-relaxed spotlight-invert">
+                                    <span class="text-black font-bold mt-1">•</span>
+                                    <span>{store}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </section>
+
+        <!-- Section Top 3 -->
+        <section class="section-gap scroll-animate">
+            <h2 class="text-4xl lg:text-5xl font-bold title-spacing text-center gradient-text parallax-item spotlight-invert">
+                Top 3 Quarter-Zips à Genève
+            </h2>
+            <p class="text-center text-gray-600 text-lg subtitle-spacing max-w-3xl mx-auto parallax-item spotlight-invert">
+                Comparaison objective : JEE, Konig Genève et Falconeri
+            </p>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-16">
+                {quarterZipComparison.map((product) => (
+                    <article class="modern-card rounded-3xl overflow-hidden hover:scale-[1.02] transition-all duration-300 parallax-item" itemscope itemtype="https://schema.org/Product">
+                        <div class:list={["relative h-72 overflow-hidden bg-gradient-to-br", product.gradient]}>
+                            <img 
+                                src={product.image} 
+                                alt={`${product.name} - pull quarter-zip homme col zippé disponible à Genève`}
+                                class="w-full h-full object-cover spotlight-invert"
+                                loading="lazy"
+                                width="400"
+                                height="400"
+                                itemprop="image"
+                            />
+                            <div class="absolute bottom-6 left-6 right-6 flex items-center gap-4">
+                                <div class:list={["brand-logo-text font-bold text-sm spotlight-invert", product.brandClass]}>
+                                    {product.brand}
+                                </div>
+                                <h3 class="text-2xl font-bold text-gray-900 drop-shadow-lg spotlight-invert" itemprop="name">{product.name}</h3>
+                            </div>
+                        </div>
+                        
+                        <div class="p-12">
+                            <div class="text-center mb-12" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                                <div class="text-4xl font-bold text-gray-900 mb-4 spotlight-invert" itemprop="price" content={product.priceNum}>{product.price}</div>
+                                <meta itemprop="priceCurrency" content="CHF" />
+                                <meta itemprop="availability" content="https://schema.org/InStock" />
+                                <p class="text-sm text-gray-600 spotlight-invert" itemprop="material">{product.material}</p>
+                            </div>
+
+                            <div class="mb-16">
+                                <p class="text-sm text-gray-500 mb-8 text-center font-medium spotlight-invert">Score global</p>
+                                <div class="flex items-center justify-center">
+                                    <div class="relative w-28 h-28">
+                                        <svg class="w-28 h-28 transform -rotate-90" aria-hidden="true">
+                                            <circle cx="56" cy="56" r="48" stroke="rgba(0,0,0,0.06)" stroke-width="8" fill="none" />
+                                            <circle 
+                                                cx="56" 
+                                                cy="56" 
+                                                r="48" 
+                                                stroke="#0a0a0a"
+                                                stroke-width="8" 
+                                                fill="none"
+                                                stroke-dasharray={`${((product.quality + product.comfort + product.durability + product.style + product.breathability + product.value) / 30) * 301.6} 301.6`}
+                                                class="transition-all duration-1000"
+                                            />
+                                        </svg>
+                                        <div class="absolute inset-0 flex items-center justify-center">
+                                            <span class="text-3xl font-bold text-gray-900 spotlight-invert" itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
+                                                <span itemprop="ratingValue">{((product.quality + product.comfort + product.durability + product.style + product.breathability + product.value) / 6).toFixed(1)}</span>
+                                                <meta itemprop="bestRating" content="5" />
+                                                <meta itemprop="worstRating" content="1" />
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="space-y-6 mb-14">
+                                {[
+                                    { label: 'Qualité', value: product.quality },
+                                    { label: 'Confort', value: product.comfort },
+                                    { label: 'Durabilité', value: product.durability },
+                                    { label: 'Style', value: product.style }
+                                ].map((metric) => (
+                                    <div>
+                                        <div class="flex justify-between text-sm text-gray-600 mb-4 font-medium spotlight-invert">
+                                            <span>{metric.label}</span>
+                                            <span>{metric.value}/5</span>
+                                        </div>
+                                        <div class="w-full bg-gray-100 rounded-full h-2.5" role="progressbar" aria-valuenow={metric.value} aria-valuemin="0" aria-valuemax="5">
+                                            <div 
+                                                class="h-2.5 rounded-full bg-black transition-all duration-1000"
+                                                style={`width: ${(metric.value / 5) * 100}%`}
+                                            ></div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+
+                            <div class="border-t border-gray-100 pt-12 mb-12">
+                                <p class="text-sm font-semibold text-gray-900 mb-6 spotlight-invert">Points forts</p>
+                                <ul class="text-sm text-gray-700 space-y-5 leading-relaxed">
+                                    {product.pros.slice(0, 3).map((pro) => (
+                                        <li class="flex items-start gap-2 spotlight-invert">
+                                            <span class="text-black font-bold mt-1">•</span>
+                                            <span>{pro}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+
+                            <a 
+                                href={product.link} 
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="block w-full bg-black text-white text-center py-4 rounded-xl font-bold hover:bg-gray-800 transition-all border border-black spotlight-invert"
+                                itemprop="url"
+                            >
+                                Voir le produit →
+                            </a>
+                        </div>
+                    </article>
+                ))}
+            </div>
+
+            <!-- Card "Où acheter" avec aération -->
+            <div class="modern-card rounded-3xl text-card-aerated parallax-item">
+                <h3 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-6 spotlight-invert">Où acheter un Quarter-Zip à Genève ?</h3>
+                <p class="text-lg text-gray-700 leading-relaxed spotlight-invert">
+                    Nous avons recensé <strong class="text-gray-900">10 boutiques spécialisées</strong> à Genève proposant des quarter-zips, du budget (CHF 21) au premium (CHF 300+). Découvrez notre carte interactive ci-dessous avec toutes les adresses, horaires et notes clients.
+                </p>
+                <p class="text-lg text-gray-700 leading-relaxed spotlight-invert">
+                    <strong class="text-gray-900">Top 3 par catégorie :</strong>
+                </p>
+                <ul class="text-lg text-gray-700 leading-relaxed">
+                    <li class="flex items-start gap-3 spotlight-invert">
+                        <span class="text-black font-bold mt-1">•</span>
+                        <span><strong class="text-gray-900">Meilleure note :</strong> picibi (5.0⭐), Konig Genève (4.9⭐), Monsieur Alain (4.9⭐)</span>
+                    </li>
+                    <li class="flex items-start gap-3 spotlight-invert">
+                        <span class="text-black font-bold mt-1">•</span>
+                        <span><strong class="text-gray-900">Meilleur rapport qualité-prix :</strong> Quarter-Zip JEE (CHF 21.05), exclusive shop (CHF 35-80)</span>
+                    </li>
+                    <li class="flex items-start gap-3 spotlight-invert">
+                        <span class="text-black font-bold mt-1">•</span>
+                        <span><strong class="text-gray-900">Premium :</strong> picibi (CHF 150-300), Boutique Addison (CHF 120-250)</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Section Map -->
+        <section class="section-gap scroll-animate">
+            <h2 class="text-4xl lg:text-5xl font-bold title-spacing text-center gradient-text parallax-item spotlight-invert">
+                10 Boutiques Quarter-Zip à Genève
+            </h2>
+            <p class="text-center text-gray-600 text-lg subtitle-spacing parallax-item spotlight-invert">
+                Carte interactive avec toutes les adresses, notes et horaires
+            </p>
+
+            <div class="modern-card rounded-3xl p-10 lg:p-12 mb-24 parallax-item">
+                <div id="map" role="application" aria-label="Carte interactive des boutiques de quarter-zip à Genève" tabindex="0"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                {stores.map((store) => (
+                    <article class="modern-card rounded-3xl overflow-hidden hover:scale-[1.02] transition-transform parallax-item" itemscope itemtype="https://schema.org/ClothingStore">
+                        <img 
+                            src={store.image} 
+                            alt={`Photo de la boutique ${store.name} à Genève`}
+                            class="store-image spotlight-invert"
+                            loading="lazy"
+                            width="800"
+                            height="400"
+                            onerror={`this.onerror=null; this.src='${store.fallbackImage}';`}
+                        />
+                        
+                        <div class="p-12">
+                            <div class="flex flex-col sm:flex-row items-start justify-between mb-12 gap-6">
+                                <div>
+                                    <h3 class="text-2xl font-bold text-gray-900 mb-5 spotlight-invert" itemprop="name">{store.name}</h3>
+                                    <p class="text-sm text-gray-600 spotlight-invert">{store.type}</p>
+                                </div>
+                                <div class="rating-badge spotlight-invert" itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
+                                    <span class="font-bold text-base" itemprop="ratingValue">{store.rating}</span>
+                                    <span class="text-sm">(<span itemprop="reviewCount">{store.reviews}</span> avis)</span>
+                                    <meta itemprop="bestRating" content="5" />
+                                </div>
+                            </div>
+
+                            <p class="text-gray-700 mb-12 leading-relaxed spotlight-invert" itemprop="description">
+                                {store.description}
+                            </p>
+
+                            <div class="bg-gray-50 rounded-xl p-6 mb-12">
+                                <p class="text-sm font-bold text-gray-900 mb-3 spotlight-invert">Fourchette de prix</p>
+                                <p class="text-lg font-semibold accent-gradient spotlight-invert">{store.priceRange}</p>
+                            </div>
+
+                            <div class="space-y-6 text-sm border-t border-gray-100 pt-12 mb-12" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+                                <p class="text-gray-700 font-medium leading-relaxed spotlight-invert">
+                                    <span itemprop="streetAddress">{store.address}</span>
+                                    <meta itemprop="addressLocality" content="Genève" />
+                                    <meta itemprop="addressCountry" content="CH" />
+                                </p>
+                                <p class="text-gray-700 spotlight-invert">
+                                    <a href={`tel:${store.phone}`} class="hover:text-black transition font-medium" itemprop="telephone">{store.phone}</a>
+                                </p>
+                                <p class="text-gray-600 text-xs leading-relaxed spotlight-invert" itemprop="openingHours">{store.hours}</p>
+                            </div>
+
+                            <div class="flex gap-4">
+                                <a 
+                                    href={store.website} 
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
+                                    class="flex-1 bg-black text-white text-center py-4 rounded-xl font-bold hover:bg-gray-800 transition text-sm spotlight-invert"
+                                    itemprop="url"
+                                >
+                                    Site web
+                                </a>
+                                <a 
+                                    href={store.googleMaps} 
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
+                                    class="flex-1 bg-white border-2 border-black text-black text-center py-4 rounded-xl font-bold hover:bg-black hover:text-white transition text-sm spotlight-invert"
+                                >
+                                    Itinéraire
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                ))}
+            </div>
+
+            <div class="modern-card rounded-2xl p-12 mt-20 bg-blue-50 border-blue-100 parallax-item">
+                <p class="text-gray-700 leading-relaxed spotlight-invert">
+                    <strong class="text-gray-900">Bon à savoir :</strong> Le quarter-zip JEE n'est pas disponible en boutique physique à Genève. Commandez-le en ligne et profitez de la livraison à domicile.
+                </p>
+            </div>
+        </section>
+
+        <!-- Section Guide d'achat -->
+        <section class="section-gap scroll-animate">
+            <h2 class="text-4xl lg:text-5xl font-bold title-spacing text-center gradient-text parallax-item spotlight-invert">
+                Guide d'Achat Quarter-Zip Genève 2026
+            </h2>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                <div class="modern-card rounded-2xl p-12 parallax-item">
+                    <h3 class="text-xl font-bold text-gray-900 mb-10 spotlight-invert">
+                        Comment choisir votre quarter-zip à Genève ?
+                    </h3>
+                    <p class="text-gray-700 leading-relaxed mb-10 spotlight-invert">
+                        Pour bien choisir votre <strong>pull quarter-zip homme</strong> à Genève, considérez ces critères :
+                    </p>
+                    <ul class="text-gray-700 space-y-6 leading-relaxed">
+                        <li class="flex items-start gap-2 spotlight-invert">
+                            <span class="text-black font-bold mt-1">•</span>
+                            <span><strong>Budget :</strong> De CHF 21 (JEE) à CHF 300+ (picibi premium)</span>
+                        </li>
+                        <li class="flex items-start gap-2 spotlight-invert">
+                            <span class="text-black font-bold mt-1">•</span>
+                            <span><strong>Usage :</strong> Bureau, loisirs ou sport</span>
+                        </li>
+                        <li class="flex items-start gap-2 spotlight-invert">
+                            <span class="text-black font-bold mt-1">•</span>
+                            <span><strong>Matière :</strong> Synthétique, coton, laine ou cachemire</span>
+                        </li>
+                        <li class="flex items-start gap-2 spotlight-invert">
+                            <span class="text-black font-bold mt-1">•</span>
+                            <span><strong>Lieu d'achat :</strong> En ligne ou dans l'une des 10 boutiques</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="modern-card rounded-2xl p-12 parallax-item">
+                    <h3 class="text-xl font-bold text-gray-900 mb-10 spotlight-invert">
+                        Quelle taille de quarter-zip choisir ?
+                    </h3>
+                    <p class="text-gray-700 leading-relaxed mb-10 spotlight-invert">
+                        La plupart des quarter-zips ont une coupe standard. Si vous êtes entre deux tailles, privilégiez la taille supérieure pour plus de confort.
+                    </p>
+                    <p class="text-gray-700 leading-relaxed spotlight-invert">
+                        <strong>Conseil :</strong> Visitez exclusive shop, Konig Genève ou Boutique Addison pour essayer en boutique avant d'acheter.
+                    </p>
+                </div>
+
+                <div class="modern-card rounded-2xl p-12 parallax-item">
+                    <h3 class="text-xl font-bold text-gray-900 mb-10 spotlight-invert">
+                        Entretien de votre quarter-zip
+                    </h3>
+                    <p class="text-gray-700 leading-relaxed mb-10 spotlight-invert">
+                        Les quarter-zips se lavent généralement en machine à 30°C en cycle délicat.
+                    </p>
+                    <p class="text-gray-700 leading-relaxed spotlight-invert">
+                        <strong>Pour le cachemire</strong> (Falconeri, Boutique Addison) : utilisez une lessive adaptée et séchez à plat pour préserver la forme.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section CTA finale -->
+        <section class="section-gap scroll-animate">
+            <div class="modern-card rounded-3xl cta-section text-center bg-gradient-to-br from-slate-50 to-white parallax-item">
+                <h2 class="text-4xl lg:text-5xl font-bold gradient-text spotlight-invert">
+                    Découvrir le Quarter-Zip JEE
+                </h2>
+                <p class="text-xl lg:text-2xl text-gray-700 max-w-3xl mx-auto leading-relaxed spotlight-invert">
+                    Le meilleur rapport qualité-prix : CHF 21.05 seulement
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a 
+                        href="https://epsteinquarterzip.netlify.app/" 
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn-primary text-lg spotlight-invert"
+                    >
+                        Acheter le Quarter-Zip JEE →
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="w-full max-w-6xl text-center text-gray-500 text-sm mt-24 pb-16 border-t border-gray-200 pt-16 px-6 sm:px-8 lg:px-12 relative z-10">
+        <p class="mb-8 text-gray-700 font-medium leading-relaxed spotlight-invert">
+            <strong>Dernière mise à jour :</strong> Février 2026 • 10 boutiques référencées
+        </p>
+        <p class="italic text-gray-600 max-w-3xl mx-auto leading-loose spotlight-invert">
+            Ce guide d'achat des quarter-zips à Genève contient des liens affiliés. Comparaison objective basée sur des données réelles pour vous aider à faire le meilleur choix.
+        </p>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+            crossorigin=""
+            is:inline></script>
+
+    <script define:vars={{ stores }}>
+        // Spotlight cursor effect
+        const spotlight = document.getElementById('spotlight');
+        const parallaxItems = document.querySelectorAll('.parallax-item');
+        const revealContainers = document.querySelectorAll('.reveal-container');
+        const spotlightInvertElements = document.querySelectorAll('.spotlight-invert');
+        
+        let mouseX = 0, mouseY = 0;
+        let spotlightX = 0, spotlightY = 0;
+        let lastX = 0, lastY = 0;
+        let echoTimeout;
+
+        const SPOTLIGHT_RADIUS = 60;
+
+        // Smooth cursor follow with easing
+        function updateSpotlight() {
+            const dx = mouseX - spotlightX;
+            const dy = mouseY - spotlightY;
+            
+            spotlightX += dx * 0.3;
+            spotlightY += dy * 0.3;
+            
+            spotlight.style.left = `${spotlightX}px`;
+            spotlight.style.top = `${spotlightY}px`;
+            spotlight.style.transform = `translate(-50%, -50%)`;
+            
+            // Update reveal layers
+            revealContainers.forEach(container => {
+                const rect = container.getBoundingClientRect();
+                const revealLayer = container.querySelector('.reveal-layer');
+                
+                if (revealLayer) {
+                    const relativeX = spotlightX - rect.left;
+                    const relativeY = spotlightY - rect.top;
+                    
+                    revealLayer.style.clipPath = `circle(${SPOTLIGHT_RADIUS}px at ${relativeX}px ${relativeY}px)`;
+                }
+            });
+            
+            // Parallax effect
+            parallaxItems.forEach(item => {
+                const rect = item.getBoundingClientRect();
+                const itemCenterX = rect.left + rect.width / 2;
+                const itemCenterY = rect.top + rect.height / 2;
+                
+                const deltaX = (mouseX - itemCenterX) * 0.02;
+                const deltaY = (mouseY - itemCenterY) * 0.02;
+                
+                item.style.transform = `translate(${-deltaX}px, ${-deltaY}px)`;
+            });
+            
+            // Color inversion check
+            spotlightInvertElements.forEach(element => {
+                const rect = element.getBoundingClientRect();
+                
+                const isOver = (
+                    mouseX >= rect.left &&
+                    mouseX <= rect.right &&
+                    mouseY >= rect.top &&
+                    mouseY <= rect.bottom
+                );
+                
+                if (isOver) {
+                    element.style.filter = 'invert(1)';
+                } else {
+                    element.style.filter = 'invert(0)';
+                }
+            });
+            
+            requestAnimationFrame(updateSpotlight);
+        }
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            
+            // Create echo effect on rapid movement
+            const speed = Math.sqrt(
+                Math.pow(mouseX - lastX, 2) + 
+                Math.pow(mouseY - lastY, 2)
+            );
+            
+            if (speed > 10) {
+                clearTimeout(echoTimeout);
+                echoTimeout = setTimeout(() => {
+                    createEcho(lastX, lastY);
+                }, 50);
+            }
+            
+            lastX = mouseX;
+            lastY = mouseY;
+        });
+
+        function createEcho(x, y) {
+            const echo = document.createElement('div');
+            echo.className = 'echo';
+            echo.style.left = `${x}px`;
+            echo.style.top = `${y}px`;
+            echo.style.transform = 'translate(-50%, -50%)';
+            document.body.appendChild(echo);
+            
+            setTimeout(() => {
+                echo.remove();
+            }, 600);
+        }
+
+        updateSpotlight();
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-animate').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Back to top button
+        const backToTopButton = document.getElementById('backToTop');
+        
+        function toggleBackToTop() {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        }
+
+        window.addEventListener('scroll', toggleBackToTop);
+        toggleBackToTop();
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Map initialization
+        function initMap() {
+            if (typeof L !== 'undefined') {
+                try {
+                    const map = L.map('map').setView([46.2044, 6.1432], 13);
+
+                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        attribution: '© OpenStreetMap contributors',
+                        maxZoom: 19
+                    }).addTo(map);
+
+                    stores.forEach(store => {
+                        const marker = L.marker([store.lat, store.lng]).addTo(map);
+                        
+                        marker.bindPopup(`
+                            <div style="color: #1f2937; min-width: 250px; font-family: system-ui;">
+                                <h4 style="font-weight: 700; font-size: 18px; margin-bottom: 8px; color: #0a0a0a;">${store.name}</h4>
+                                <p style="font-size: 13px; color: #6b7280; margin-bottom: 10px;">${store.type}</p>
+                                <div style="margin-bottom: 10px; background: #0a0a0a; color: white; display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 13px;">
+                                    <span style="font-weight: 600;">${store.rating}</span>
+                                    <span style="font-size: 11px;"> (${store.reviews} avis)</span>
+                                </div>
+                                <p style="font-size: 13px; font-weight: 600; color: #2563eb; margin-bottom: 10px;">${store.priceRange}</p>
+                                <p style="font-size: 13px; margin-bottom: 10px; color: #4b5563; line-height: 1.4;">${store.address}</p>
+                                <a href="${store.googleMaps}" target="_blank" rel="noopener" style="color: #0a0a0a; font-size: 13px; font-weight: 600; text-decoration: underline;">Voir l'itinéraire →</a>
+                            </div>
+                        `);
+                    });
+
+                    setTimeout(() => {
+                        map.invalidateSize();
+                    }, 100);
+                } catch (error) {
+                    console.error('Erreur carte:', error);
+                }
+            }
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initMap);
+        } else {
+            initMap();
+        }
+    </script>
+</body>
 </html>
