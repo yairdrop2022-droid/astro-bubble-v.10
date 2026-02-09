@@ -1,6 +1,3 @@
-
-Copier
-
 ---
 import '../styles/global.css';
 
@@ -1508,9 +1505,10 @@ const schemaLocal = {
             requestAnimationFrame(updateSpotlight);
         }
 
-        document.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
+        // Mouse move handler
+        function handleMove(clientX, clientY) {
+            mouseX = clientX;
+            mouseY = clientY;
             
             // Create echo effect on rapid movement
             const speed = Math.sqrt(
@@ -1527,7 +1525,28 @@ const schemaLocal = {
             
             lastX = mouseX;
             lastY = mouseY;
+        }
+
+        // Desktop: mousemove
+        document.addEventListener('mousemove', (e) => {
+            handleMove(e.clientX, e.clientY);
         });
+
+        // Mobile: touchmove (follows finger while sliding)
+        document.addEventListener('touchmove', (e) => {
+            if (e.touches.length > 0) {
+                const touch = e.touches[0];
+                handleMove(touch.clientX, touch.clientY);
+            }
+        }, { passive: true });
+
+        // Mobile: touchstart (initial touch)
+        document.addEventListener('touchstart', (e) => {
+            if (e.touches.length > 0) {
+                const touch = e.touches[0];
+                handleMove(touch.clientX, touch.clientY);
+            }
+        }, { passive: true });
 
         function createEcho(x, y) {
             const echo = document.createElement('div');
