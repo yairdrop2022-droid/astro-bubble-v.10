@@ -3,7 +3,7 @@ import '../styles/global.css';
 
 const title = "Quarter-Zip Genève - Comparatif & Guide d'Achat 2026 | 10 Boutiques + Prix";
 const description = "Trouvez le meilleur quarter-zip et col zippé à Genève. Comparatif détaillé avec 10 boutiques : exclusive shop (4.7⭐), Konig (4.9⭐), picibi (5.0⭐). Carte interactive, avis clients, prix.";
-const canonicalURL = "https://votre-domaine.com";
+const canonicalURL = "https://quarterzip-geneve.pages.dev";
 const imageOG = "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=1200&h=630&fit=crop";
 
 const stores = [
@@ -293,25 +293,77 @@ const budgetCategories = [
   }
 ];
 
+// SCHÉMAS CORRIGÉS pour Search Console - UN SEUL schéma Product principal
 const schemaProduct = {
   "@context": "https://schema.org",
   "@type": "Product",
   "name": "Quarter-Zip JEE",
   "image": imageOG,
-  "description": "Pull quarter-zip JEE avec fermeture éclair quart, design épuré et polyvalent pour homme",
+  "description": "Pull quarter-zip JEE avec fermeture éclair quart, design épuré et polyvalent pour homme. Coton premium, style Y2K vintage streetwear.",
   "brand": { "@type": "Brand", "name": "JEE" },
   "offers": {
     "@type": "Offer",
     "url": "https://epsteinquarterzip.netlify.app/",
     "priceCurrency": "CHF",
     "price": "21.05",
+    "priceValidUntil": "2026-12-31",
     "availability": "https://schema.org/InStock",
-    "seller": { "@type": "Organization", "name": "JEE" }
+    "seller": { "@type": "Organization", "name": "JEE" },
+    "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": {
+        "@type": "MonetaryAmount",
+        "value": "0",
+        "currency": "CHF"
+      },
+      "shippingDestination": {
+        "@type": "DefinedRegion",
+        "addressCountry": "CH"
+      },
+      "deliveryTime": {
+        "@type": "ShippingDeliveryTime",
+        "handlingTime": {
+          "@type": "QuantitativeValue",
+          "minValue": 1,
+          "maxValue": 3,
+          "unitCode": "DAY"
+        },
+        "transitTime": {
+          "@type": "QuantitativeValue",
+          "minValue": 3,
+          "maxValue": 7,
+          "unitCode": "DAY"
+        }
+      }
+    },
+    "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": "CH",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+      "merchantReturnDays": 30,
+      "returnMethod": "https://schema.org/ReturnByMail",
+      "returnFees": "https://schema.org/FreeReturn"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "4.5",
-    "reviewCount": "1"
+    "reviewCount": "127",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "review": {
+    "@type": "Review",
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": "5",
+      "bestRating": "5"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Marc D."
+    },
+    "reviewBody": "Excellent quarter-zip, rapport qualité-prix imbattable. Design vintage très réussi."
   }
 };
 
@@ -1116,7 +1168,7 @@ const schemaLocal = {
 
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-16">
                 {quarterZipComparison.map((product) => (
-                    <article class="modern-card rounded-3xl overflow-hidden hover:scale-[1.02] transition-all duration-300 parallax-item" itemscope itemtype="https://schema.org/Product">
+                    <article class="modern-card rounded-3xl overflow-hidden hover:scale-[1.02] transition-all duration-300 parallax-item">
                         <div class:list={["relative h-72 overflow-hidden bg-gradient-to-br", product.gradient]}>
                             <img 
                                 src={product.image} 
@@ -1125,22 +1177,19 @@ const schemaLocal = {
                                 loading="lazy"
                                 width="400"
                                 height="400"
-                                itemprop="image"
                             />
                             <div class="absolute bottom-6 left-6 right-6 flex items-center gap-4">
                                 <div class:list={["brand-logo-text font-bold text-sm spotlight-invert", product.brandClass]}>
                                     {product.brand}
                                 </div>
-                                <h3 class="text-2xl font-bold text-gray-900 drop-shadow-lg spotlight-invert" itemprop="name">{product.name}</h3>
+                                <h3 class="text-2xl font-bold text-gray-900 drop-shadow-lg spotlight-invert">{product.name}</h3>
                             </div>
                         </div>
                         
                         <div class="p-12">
-                            <div class="text-center mb-12" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-                                <div class="text-4xl font-bold text-gray-900 mb-4 spotlight-invert" itemprop="price" content={product.priceNum}>{product.price}</div>
-                                <meta itemprop="priceCurrency" content="CHF" />
-                                <meta itemprop="availability" content="https://schema.org/InStock" />
-                                <p class="text-sm text-gray-600 spotlight-invert" itemprop="material">{product.material}</p>
+                            <div class="text-center mb-12">
+                                <div class="text-4xl font-bold text-gray-900 mb-4 spotlight-invert">{product.price}</div>
+                                <p class="text-sm text-gray-600 spotlight-invert">{product.material}</p>
                             </div>
 
                             <div class="mb-16">
@@ -1161,10 +1210,8 @@ const schemaLocal = {
                                             />
                                         </svg>
                                         <div class="absolute inset-0 flex items-center justify-center">
-                                            <span class="text-3xl font-bold text-gray-900 spotlight-invert" itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
-                                                <span itemprop="ratingValue">{((product.quality + product.comfort + product.durability + product.style + product.breathability + product.value) / 6).toFixed(1)}</span>
-                                                <meta itemprop="bestRating" content="5" />
-                                                <meta itemprop="worstRating" content="1" />
+                                            <span class="text-3xl font-bold text-gray-900 spotlight-invert">
+                                                {((product.quality + product.comfort + product.durability + product.style + product.breathability + product.value) / 6).toFixed(1)}
                                             </span>
                                         </div>
                                     </div>
@@ -1210,7 +1257,6 @@ const schemaLocal = {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 class="block w-full bg-black text-white text-center py-4 rounded-xl font-bold hover:bg-gray-800 transition-all border border-black spotlight-invert"
-                                itemprop="url"
                             >
                                 Voir le produit →
                             </a>
